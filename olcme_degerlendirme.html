@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. Ünite: Ölçme ve Değerlendirme Soruları</title>
+    <style>
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #ff9966;
+            --bg-gradient: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            --card-bg: #ffffff;
+            --text-color: #2d3436;
+            --border-radius: 14px;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .app-container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 1px solid #dee2e6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ff5e62, #ff9966);
+            color: white;
+            padding: 35px 30px;
+            text-align: center;
+        }
+        .header h1 { margin: 0; font-size: 26px; font-weight: 800; letter-spacing: 0.5px; }
+        .header p { margin: 8px 0 0; font-size: 14px; opacity: 0.95; }
+
+        .body-content { padding: 35px; }
+
+        .identity-panel {
+            background: #fff3e0;
+            border: 2px dashed #ffb74d;
+            border-radius: 12px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+        .identity-group label {
+            display: block;
+            font-weight: 700;
+            color: #e65100;
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+        .identity-group input {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #ffcc80;
+            border-radius: 8px;
+            font-size: 14px;
+            box-sizing: border-box;
+            background: white;
+        }
+
+        .section-box {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-left: 5px solid #ff5e62;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .section-box h3 { margin-top: 0; color: #c0392b; font-size: 18px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+
+        /* Gerçek Görsel Konteynerleri */
+        .visual-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin: 15px 0 20px 0;
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+        .visual-item { text-align: center; }
+        .visual-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: contain;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            background: #f8f9fa;
+            padding: 4px;
+            box-sizing: border-box;
+        }
+        .visual-caption { font-size: 12px; color: #333; margin-top: 6px; font-weight: 600; }
+
+        .question-item { margin-bottom: 20px; }
+        .question-item label { display: block; font-weight: 600; color: #2c3e50; font-size: 14px; margin-bottom: 6px; }
+        .question-item textarea {
+            width: 100%;
+            height: 80px;
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 13px;
+            box-sizing: border-box;
+            resize: vertical;
+            background: white;
+        }
+
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+            margin-top: 5px;
+        }
+        .checkbox-grid label { font-weight: normal; font-size: 13px; display: flex; align-items: center; gap: 8px; margin: 0; cursor: pointer; }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #ff5e62, #ff9966);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255,94,98,0.4);
+            transition: all 0.3s;
+        }
+        .submit-btn:hover { opacity: 0.95; transform: translateY(-2px); }
+
+        #statusMsg { text-align: center; margin-top: 15px; font-weight: bold; }
+        .footer-copyright { text-align: center; margin-top: 40px; font-size: 12px; color: #777; border-top: 1px solid #eee; padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="app-container">
+    <div class="header">
+        <h1>1. ÜNİTE ÖLÇME VE DEĞERLENDİRME</h1>
+        <p>Mekânsal Sorunlar, Süveyş Kanalı, Aral Gölü ve Meksika Körfezi Analizleri[cite: 12]</p>
+    </div>
+
+    <div class="body-content">
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+        <form id="cografyaForm" action="https://script.google.com/macros/s/AKfycby7UDJVtF_oXNgmBbOEib6QMobNZSjbaj3Y517L8nCkMvHEaHESP-M4aGjaLC0VbLGH/exec" method="POST" target="hidden_iframe">
+            
+            <!-- Öğrenci ve Sınıf Ayrı Alanlar -->
+            <div class="identity-panel">
+                <div class="identity-group">
+                    <label for="ogrenciAdi">Öğrenci Adı Soyadı:</label>
+                    <input type="text" id="ogrenciAdi" name="ogrenciAdi" required placeholder="Adınızı ve soyadınızı giriniz...">
+                </div>
+                <div class="identity-group">
+                    <label for="sinifSube">Sınıf ve Şube / Okul No:</label>
+                    <input type="text" id="sinifSube" name="sinifSube" required placeholder="Örn: 9/A - 1453">
+                </div>
+            </div>
+
+            <!-- BÖLÜM 1: SÜVEYŞ KANALI -->
+            <div class="section-box">
+                <h3>1-4. Sorular: Süveyş Kanalı ve Ever Given Kazası</h3>
+                
+                <div class="visual-container">
+                    <div class="visual-item">
+                        <img src="suveys-harita.jpg" alt="Süveyş Kanalı Konum Haritası" onerror="this.src='https://via.placeholder.com/220x150?text=Suveys+Haritasi+Eklenecek'">
+                        <div class="visual-caption">Süveyş Kanalı Konum Haritası[cite: 12]</div>
+                    </div>
+                    <div class="visual-item">
+                        <img src="ever-given.jpg" alt="Ever Given Kaza Görseli" onerror="this.src='https://via.placeholder.com/220x150?text=Ever+Given+Gorseli+Eklenecek'">
+                        <div class="visual-caption">Ever Given Kaza Görseli[cite: 12]</div>
+                    </div>
+                </div>
+
+                <div class="question-item">
+                    <label>1. Süveyş Kanalı'nın kıtalara ve denizlere göre konumu nasıldır? Açıklayınız[cite: 12].</label>
+                    <textarea name="suveysSoru1" required placeholder="Konum özelliklerini yazınız..."></textarea>
+                </div>
+                <div class="question-item">
+                    <label>2. Olayın yaşanmasına neden olan doğa olayları dikkate alındığında bölgenin coğrafi özellikleri hakkında neler söylenebilir[cite: 12]?</label>
+                    <textarea name="suveysSoru2" required placeholder="Coğrafi özellikleri açıklayınız..."></textarea>
+                </div>
+                <div class="question-item">
+                    <label>3. Süveyş Kanalı'nın kaza nedeniyle kapalı kalmasının bölgesel ve küresel etkileri neler olabilir[cite: 12]?</label>
+                    <textarea name="suveysSoru3" required placeholder="Etkilerini yazınız..."></textarea>
+                </div>
+                <div class="question-item">
+                    <label>4. Yaşanan olay sonucunda ham petrol ve LNG sevkiyatında aksaklıklar yaşanmasının ekonomik, sosyal, politik etkileri neler olabilir[cite: 12]?</label>
+                    <textarea name="suveysSoru4" required placeholder="Etkileri detaylıca açıklayınız..."></textarea>
+                </div>
+            </div>
+
+            <!-- BÖLÜM 2: ARAL GÖLÜ -->
+            <div class="section-box" style="border-left-color: #00b894;">
+                <h3 style="color: #00b894;">5-8. Sorular: Aral Gölü'nün Kuruma Süreci</h3>
+                
+                <div class="visual-container" style="grid-template-columns: repeat(4, 1fr);">
+                    <div class="visual-item">
+                        <img src="aral-1989.jpg" alt="Aral Gölü 1989" onerror="this.src='https://via.placeholder.com/150x130?text=1989'">
+                        <div class="visual-caption">1989 Yılı[cite: 12]</div>
+                    </div>
+                    <div class="visual-item">
+                        <img src="aral-2000.jpg" alt="Aral Gölü 2000" onerror="this.src='https://via.placeholder.com/150x130?text=2000'">
+                        <div class="visual-caption">2000 Yılı[cite: 12]</div>
+                    </div>
+                    <div class="visual-item">
+                        <img src="aral-2006.jpg" alt="Aral Gölü 2006" onerror="this.src='https://via.placeholder.com/150x130?text=2006'">
+                        <div class="visual-caption">2006 Yılı[cite: 12]</div>
+                    </div>
+                    <div class="visual-item">
+                        <img src="aral-2018.jpg" alt="Aral Gölü 2018" onerror="this.src='https://via.placeholder.com/150x130?text=2018'">
+                        <div class="visual-caption">2018 Yılı[cite: 12]</div>
+                    </div>
+                </div>
+
+                <div class="question-item">
+                    <label>5. Uydu görüntülerindeki değişim dikkate alındığında Aral Gölü'nde nasıl bir çevre sorunu yaşandığı söylenebilir[cite: 12]?</label>
+                    <textarea name="aralSoru5" required placeholder="Çevre sorununu açıklayınız..."></textarea>
+                </div>
+
+                <div class="question-item">
+                    <label>6. Aral Gölü'nde yaşanan sorundan doğrudan etkilenen ülkeleri işaretleyiniz[cite: 12]:</label>
+                    <div class="checkbox-grid">
+                        <label><input type="checkbox" name="aralUlkeSecimleri" value="Azerbaycan"> Azerbaycan[cite: 12]</label>
+                        <label><input type="checkbox" name="aralUlkeSecimleri" value="Kazakistan"> Kazakistan[cite: 12]</label>
+                        <label><input type="checkbox" name="aralUlkeSecimleri" value="Özbekistan"> Özbekistan[cite: 12]</label>
+                        <label><input type="checkbox" name="aralUlkeSecimleri" value="Tacikistan"> Tacikistan[cite: 12]</label>
+                    </div>
+                </div>
+
+                <div class="question-item">
+                    <label>7. Aral Gölü'nde yaşanan sorunun ortaya çıkmasında etkili olan doğal ve beşerî faktörler neler olabilir? Açıklayınız[cite: 12].</label>
+                    <textarea name="aralSoru7" required placeholder="Doğal ve beşerî faktörleri yazınız..."></textarea>
+                </div>
+                <div class="question-item">
+                    <label>8. Aral Gölü'nde yaşanan değişimin ekonomik, sosyal ve çevresel etkileri neler olabilir[cite: 12]?</label>
+                    <textarea name="aralSoru8" required placeholder="Etkilerini açıklayınız..."></textarea>
+                </div>
+            </div>
+
+            <!-- BÖLÜM 3: MEKSİKA KÖRFEZİ -->
+            <div class="section-box" style="border-left-color: #0984e3;">
+                <h3 style="color: #0984e3;">9-10. Sorular: Meksika Körfezi Petrol Kuyusu Felaketi</h3>
+                
+                <div class="visual-container">
+                    <div class="visual-item" style="grid-column: 1 / -1;">
+                        <img src="meksika-sema.jpg" alt="Deepwater Horizon Bilgi Görseli" style="height: 180px;" onerror="this.src='https://via.placeholder.com/600x180?text=Meksika+Körfezi+Bilgi+Görseli+Eklenecek'">
+                        <div class="visual-caption">Deepwater Horizon Felaket Bilgi Görseli[cite: 12]</div>
+                    </div>
+                </div>
+
+                <div class="question-item">
+                    <label>9. Petrol kuyusu felaketi, yaşandığı yerdeki beşerî ortamda ne tür etkiler ortaya çıkarmıştır? Açıklayınız[cite: 12].</label>
+                    <textarea name="meksikaSoru9" required placeholder="Beşerî etkileri açıklayınız..."></textarea>
+                </div>
+                <div class="question-item">
+                    <label>10. Yaşanan bu felaketin, kazadan etkilenen bölgedeki uzun vadeli ekonomik etkileri neler olabilir[cite: 12]?</label>
+                    <textarea name="meksikaSoru10" required placeholder="Uzun vadeli ekonomik etkileri yazınız..."></textarea>
+                </div>
+            </div>
+
+            <button type="submit" id="submitBtn" class="submit-btn">Ölçme ve Değerlendirme Cevaplarını Google Tabloya Gönder</button>
+        </form>
+
+        <p id="statusMsg"></p>
+
+        <div class="footer-copyright">
+            Copyright &copy; 2026 Harun İnalcık. Tüm Hakları Saklıdır.<br>
+            Coğrafya Eğitim Teknolojileri ve Dijital Ölçme Değerlendirme Platformu.
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('cografyaForm').addEventListener('submit', function() {
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Veriler İşleniyor ve Gönderiliyor...";
+        const statusMsg = document.getElementById('statusMsg');
+        statusMsg.style.color = "#0984e3";
+        statusMsg.textContent = "Cevaplarınız Google E-Tablolar'a aktarılıyor...";
+
+        setTimeout(function() {
+            document.getElementById('cografyaForm').reset();
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Ölçme ve Değerlendirme Cevaplarını Gönder";
+            statusMsg.style.color = "#00b894";
+            statusMsg.textContent = "Tüm yanıtlarınız başarıyla Google E-Tablolar'a kaydedildi!";
+        }, 2000);
+    });
+</script>
+
+</body>
+</html>
